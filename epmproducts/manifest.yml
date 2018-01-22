@@ -1,0 +1,20 @@
+---
+applications:
+
+- name: epmproducts
+  memory: 512M
+  host: epmproducts_sdk
+  path: target/epmproducts.war
+  buildpack: sap_java_buildpack
+  env:
+    SAP_JWT_TRUST_ACL: '[{"clientid" : "*", "identityzone" : "*"}]'
+  services:  - odataxsuaa
+  
+- name: approuterodata
+  path: approuter
+  memory: 128M
+  buildpack: nodejs_buildpack
+  env:
+    destinations: '[{"name":"destination", "url" :"https://epmproducts_sdk.cfapps.eu10.hana.ondemand.com", "forwardAuthToken": true}]'
+  services:
+    - odataxsuaa

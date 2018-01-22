@@ -1,0 +1,18 @@
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+	<edmx:DataServices>
+		<Schema Namespace="EPMSample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<EntityType Name="Product">
+				<Key>
+					<PropertyRef Name="ProductID" />
+				</Key>
+				<Property Name="ProductID" Type="Edm.Int32" />
+				<Property Name="Name" Type="Edm.String" />
+				<Property Name="Description" Type="Edm.String" />
+				<Property Name="Category" Type="Edm.String" />
+			</EntityType>
+			<EntityContainer Name="EDMEntities">
+				<EntitySet Name="Products" EntityType="EPMSample.Product" />
+			</EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
